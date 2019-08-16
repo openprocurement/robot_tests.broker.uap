@@ -130,7 +130,7 @@ Input String
   Set Window Size  @{USERS.users['${ARGUMENTS[0]}'].size}
   Set Window Position  @{USERS.users['${ARGUMENTS[0]}'].position}
   Set Global Variable   ${tenderpage}   ${EMPTY}
-  Run Keyword If  '${ARGUMENTS[0]}' != 'Etender_Viewer'  Login  ${ARGUMENTS[0]}
+  Run Keyword If  '${ARGUMENTS[0]}' != 'uap_Viewer'  Login  ${ARGUMENTS[0]}
 
 Login
   [Arguments]  ${username}
@@ -145,7 +145,7 @@ Login
 
 Підготувати дані для оголошення тендера
   [Arguments]  ${username}  ${tender_data}  ${role_name}
-  ${tender_data}=  Run Keyword IF  '${username}' != 'Etender_Viewer'   adapt_data   ${tender_data}
+  ${tender_data}=  Run Keyword IF  '${username}' != 'uap_Viewer'   adapt_data   ${tender_data}
   ...             ELSE  Set Variable  ${tender_data}
   Log  ${tender_data}
   [return]  ${tender_data}
@@ -1065,6 +1065,7 @@ Field Value Is Not Empty
 Скасування рішення кваліфікаційної комісії
   [Arguments]  ${username}  ${tender_uaid}  ${award_num}
   uap.Пошук тендера по ідентифікатору   ${username}  ${tender_uaid}
+  Wait and Click    id=getGuarantee
   Wait and Click    id=btn_modalCancelAward
 
 #-----------------CONTRACT------------------#
@@ -1136,7 +1137,7 @@ Field Value Is Not Empty
   Run Keyword And Return  Отримати інформацію із договору про ${field_name}
 
 Отримати інформацію із договору про status
-  Run Keyword And Return  Wait and Get Text  xpath=//div[@ng-if='isShowContract(award)']/div[2]/div[2]
+  Run Keyword And Return  Get Element Attribute   id=contractingStatus@status
 
 Отримати інформацію із договору про milestones[${n}].status
   Run Keyword And Return  Wait and Get Attribute  id=milestoneStatus_${n}  status
