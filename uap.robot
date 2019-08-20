@@ -174,8 +174,9 @@ Field Value Is Not Empty
   [Arguments]  ${tender_uaid}  ${tab}  ${href}
   Wait and Click    id=assetBtn
   Wait and Click    ${tab}
+  Sleep  3
   Wait and Input    xpath=//input[@ng-model="searchString"]  ${tender_uaid}
-  Sleep  1
+  Sleep  3
   Wait and Click    xpath=//a[@ng-click="search()"]
   Дочекатись зникнення blockUI
   Wait and Click    xpath=//a[contains(@href,'${href}')]
