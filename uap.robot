@@ -933,10 +933,10 @@ Field Value Is Not Empty
   uap.Оновити сторінку з лотом  ${username}  ${tender_uaid}
   Wait Until Element Is Visible  id=value.amount
   Input String      id=value.amount   ${value}
-  Click Element     xpath=//button[@click-and-block='updateBid(bid)']
+  Wait Scroll Click     xpath=//button[@click-and-block='updateBid(bid)']
 #  Dismiss Alert
   Sleep  5
-  Click Element     xpath=//button[@click-and-block='activateBid(bid)']
+  Wait Scroll Click     xpath=//button[@click-and-block='activateBid(bid)']
 #  Dismiss Alert
   Sleep  10
 
