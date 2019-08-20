@@ -710,7 +710,7 @@ Field Value Is Not Empty
 Внести зміни в умови проведення аукціону
   [Arguments]  ${username}  ${tender_uaid}  ${fieldname}  ${fieldvalue}  ${auction_index}
   Перейти на сторінку лота за потреби
-  Wait and Click    id=editAuction_0
+  Wait Scroll Click    id=editAuction_0
   Дочекатись зникнення blockUI
   Run Keyword If  '${fieldname}'=='auctionPeriod.startDate'  Розділити дату та заповнити поля  ${fieldvalue}
   Run Keyword And Return If  '${fieldname}'=='auctionPeriod.startDate'  Зберегти зміни
