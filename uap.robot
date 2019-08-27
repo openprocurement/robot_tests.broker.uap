@@ -1164,6 +1164,7 @@ Field Value Is Not Empty
   Перейти на сторінку контрактингу  ${username}  ${contract_uaid}
   Select From List By Index  id=docType_approval1  1
   Choose File     id=tend_doc_add_approval1  ${document}
+  Sleep  15
 
 Вказати дату прийняття наказу
   [Arguments]  ${username}  ${contract_uaid}  ${date_met}
